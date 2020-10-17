@@ -27,8 +27,6 @@ jobs:
       run: dotnet restore ./src/praxicloud.core.metrics.providers.solution.sln
     - name: Build Library and Test Projects
       run: dotnet build --configuration Release --no-restore ./src/praxicloud.core.metrics.providers.solution.sln
-    - name: Test Library Application Insights
-      run: dotnet test --no-restore --verbosity normal ./src/praxicloud.core.metrics.applicationinsights.Tests/praxicloud.core.metrics.applicationinsights.Tests.csproj
     - name: Test Library Prometheus
       run: dotnet test --no-restore --verbosity normal ./src/praxicloud.core.metrics.prometheus.tests/praxicloud.core.metrics.prometheus.tests.csproj
     - name: Package Application Insights library
