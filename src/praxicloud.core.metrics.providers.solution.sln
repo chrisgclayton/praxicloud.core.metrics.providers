@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.30523.141
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "praxicloud.core.metrics.applicationinsights", "praxicloud.core.metrics.applicationinsights\praxicloud.core.metrics.applicationinsights.csproj", "{932591B2-9D77-4CB8-BFD4-E86264974FFC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "praxicloud.core.metrics.applicationinsights.Tests", "praxicloud.core.metrics.applicationinsights.Tests\praxicloud.core.metrics.applicationinsights.Tests.csproj", "{15D96712-360A-45D0-8DEB-B09DE5D2E7D1}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "praxicloud.core.metrics.prometheus", "praxicloud.core.metrics.prometheus\praxicloud.core.metrics.prometheus.csproj", "{6C16B2F5-01F6-4031-94F4-61F0FB6CD883}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "praxicloud.core.metrics.prometheus.tests", "praxicloud.core.metrics.prometheus.tests\praxicloud.core.metrics.prometheus.tests.csproj", "{3F49B55F-50B6-4675-9D54-7BC581524F3E}"
@@ -21,10 +19,6 @@ Global
 		{932591B2-9D77-4CB8-BFD4-E86264974FFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{932591B2-9D77-4CB8-BFD4-E86264974FFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{932591B2-9D77-4CB8-BFD4-E86264974FFC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{15D96712-360A-45D0-8DEB-B09DE5D2E7D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{15D96712-360A-45D0-8DEB-B09DE5D2E7D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{15D96712-360A-45D0-8DEB-B09DE5D2E7D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{15D96712-360A-45D0-8DEB-B09DE5D2E7D1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6C16B2F5-01F6-4031-94F4-61F0FB6CD883}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6C16B2F5-01F6-4031-94F4-61F0FB6CD883}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6C16B2F5-01F6-4031-94F4-61F0FB6CD883}.Release|Any CPU.ActiveCfg = Release|Any CPU
