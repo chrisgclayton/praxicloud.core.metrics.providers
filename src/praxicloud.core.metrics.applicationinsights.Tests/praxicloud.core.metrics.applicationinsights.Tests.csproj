@@ -28,7 +28,25 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="FakesAssemblies\" />
+    <AdditionalDesignTimeBuildInput Remove="FakesAssemblies\Microsoft.ApplicationInsights.2.15.0.44797.Fakes.dll" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AdditionalDesignTimeBuildInput Remove="FakesAssemblies\praxicloud.core.metrics.applicationinsights.Fakes.dll" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="FakesAssemblies\Microsoft.ApplicationInsights.2.15.0.44797.Fakes.xml" />
+    <Content Include="FakesAssemblies\praxicloud.core.metrics.applicationinsights.Fakes.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="FakesAssemblies\Microsoft.ApplicationInsights.2.15.0.44797.Fakes.dll" />
+    <None Include="FakesAssemblies\Microsoft.ApplicationInsights.2.15.0.44797.Fakes.fakesconfig" />
+    <None Include="FakesAssemblies\Microsoft.ApplicationInsights.2.15.0.44797.Fakes.messages" />
+    <None Include="FakesAssemblies\praxicloud.core.metrics.applicationinsights.Fakes.dll" />
+    <None Include="FakesAssemblies\praxicloud.core.metrics.applicationinsights.Fakes.fakesconfig" />
+    <None Include="FakesAssemblies\praxicloud.core.metrics.applicationinsights.Fakes.messages" />
   </ItemGroup>
 
 </Project>
