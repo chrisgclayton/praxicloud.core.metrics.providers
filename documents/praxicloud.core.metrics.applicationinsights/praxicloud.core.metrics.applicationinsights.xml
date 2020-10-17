@@ -1,0 +1,546 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>praxicloud.core.metrics.applicationinsights</name>
+    </assembly>
+    <members>
+        <member name="T:praxicloud.core.metrics.applicationinsights.ApplicationInsightsCounter">
+            <summary>
+            A counter that increments in values and never decreases, only restarting when it is recreated, storing its data in Application Insights
+            </summary>
+        </member>
+        <member name="F:praxicloud.core.metrics.applicationinsights.ApplicationInsightsCounter._metric">
+            <summary>
+            The metric container in use
+            </summary>
+        </member>
+        <member name="F:praxicloud.core.metrics.applicationinsights.ApplicationInsightsCounter._writer">
+            <summary>
+            An instance used to write the metric with required labels
+            </summary>      
+        </member>
+        <member name="F:praxicloud.core.metrics.applicationinsights.ApplicationInsightsCounter._value">
+            <summary>
+            The current value of the counter
+            </summary>
+        </member>
+        <member name="F:praxicloud.core.metrics.applicationinsights.ApplicationInsightsCounter._control">
+            <summary>
+            A control used to ensure accurate updates
+            </summary>
+        </member>
+        <member name="M:praxicloud.core.metrics.applicationinsights.ApplicationInsightsCounter.#ctor(Microsoft.ApplicationInsights.TelemetryClient,System.String,System.String,System.String[])">
+            <summary>
+            Initializes a new instance of the type
+            </summary>
+            <param name="client">The telemetry client being written to</param>
+            <param name="name">The name of the counter</param>
+            <param name="help">The help text associated with the counter</param>
+            <param name="labels">The labels assocaited with the counter</param>
+        </member>
+        <member name="P:praxicloud.core.metrics.applicationinsights.ApplicationInsightsCounter.Name">
+            <inheritdoc />
+        </member>
+        <member name="P:praxicloud.core.metrics.applicationinsights.ApplicationInsightsCounter.Help">
+            <inheritdoc />
+        </member>
+        <member name="P:praxicloud.core.metrics.applicationinsights.ApplicationInsightsCounter.Labels">
+            <inheritdoc />
+        </member>
+        <member name="M:praxicloud.core.metrics.applicationinsights.ApplicationInsightsCounter.Increment">
+            <inheritdoc />
+        </member>
+        <member name="M:praxicloud.core.metrics.applicationinsights.ApplicationInsightsCounter.IncrementBy(System.Double)">
+            <inheritdoc />
+        </member>
+        <member name="M:praxicloud.core.metrics.applicationinsights.ApplicationInsightsCounter.SetTo(System.Double)">
+            <inheritdoc />
+        </member>
+        <member name="T:praxicloud.core.metrics.applicationinsights.ApplicationInsightsGauge">
+            <summary>
+            A metric that indicates an known event occurred, storing its data in Application Insights
+            </summary>
+        </member>
+        <member name="F:praxicloud.core.metrics.applicationinsights.ApplicationInsightsGauge._metric">
+            <summary>
+            The metric container in use
+            </summary>
+        </member>
+        <member name="F:praxicloud.core.metrics.applicationinsights.ApplicationInsightsGauge._writer">
+            <summary>
+            An instance used to write the metric with required labels
+            </summary>      
+        </member>
+        <member name="F:praxicloud.core.metrics.applicationinsights.ApplicationInsightsGauge._value">
+            <summary>
+            The current value of the gauge
+            </summary>
+        </member>
+        <member name="F:praxicloud.core.metrics.applicationinsights.ApplicationInsightsGauge._control">
+            <summary>
+            A control used to ensure accurate updates
+            </summary>
+        </member>
+        <member name="M:praxicloud.core.metrics.applicationinsights.ApplicationInsightsGauge.#ctor(Microsoft.ApplicationInsights.TelemetryClient,System.String,System.String,System.String[])">
+            <summary>
+            Initializes a new instance of the type
+            </summary>
+            <param name="client">The telemetry client being written to</param>
+            <param name="name">The name of the pulse</param>
+            <param name="help">The help text associated with the pulse</param>
+            <param name="labels">The labels assocaited with the pulse</param>
+        </member>
+        <member name="P:praxicloud.core.metrics.applicationinsights.ApplicationInsightsGauge.Name">
+            <inheritdoc />
+        </member>
+        <member name="P:praxicloud.core.metrics.applicationinsights.ApplicationInsightsGauge.Help">
+            <inheritdoc />
+        </member>
+        <member name="P:praxicloud.core.metrics.applicationinsights.ApplicationInsightsGauge.Labels">
+            <inheritdoc />
+        </member>
+        <member name="M:praxicloud.core.metrics.applicationinsights.ApplicationInsightsGauge.Decrement">
+            <inheritdoc />
+        </member>
+        <member name="M:praxicloud.core.metrics.applicationinsights.ApplicationInsightsGauge.DecrementBy(System.Double)">
+            <inheritdoc />
+        </member>
+        <member name="M:praxicloud.core.metrics.applicationinsights.ApplicationInsightsGauge.Increment">
+            <inheritdoc />
+        </member>
+        <member name="M:praxicloud.core.metrics.applicationinsights.ApplicationInsightsGauge.IncrementBy(System.Double)">
+            <inheritdoc />
+        </member>
+        <member name="M:praxicloud.core.metrics.applicationinsights.ApplicationInsightsGauge.SetTo(System.Double)">
+            <inheritdoc />
+        </member>
+        <member name="M:praxicloud.core.metrics.applicationinsights.ApplicationInsightsGauge.TrackExecution">
+            <inheritdoc />
+        </member>
+        <member name="T:praxicloud.core.metrics.applicationinsights.ApplicationInsightsGauge.Tracker">
+            <summary>
+            An type that increments a gauge when created and decrements when disposed of
+            </summary>
+        </member>
+        <member name="F:praxicloud.core.metrics.applicationinsights.ApplicationInsightsGauge.Tracker._gauge">
+            <summary>
+            The gauge to track with
+            </summary>
+        </member>
+        <member name="M:praxicloud.core.metrics.applicationinsights.ApplicationInsightsGauge.Tracker.#ctor(praxicloud.core.metrics.IGauge)">
+            <summary>
+            Initializes a new instance of the type
+            </summary>
+            <param name="gauge">The gauge to modify</param>
+        </member>
+        <member name="M:praxicloud.core.metrics.applicationinsights.ApplicationInsightsGauge.Tracker.Dispose">
+            <inheritdoc />
+        </member>
+        <member name="T:praxicloud.core.metrics.applicationinsights.ApplicationInsightsMetricsExtensions">
+            <summary>
+            An extension class for metric factories
+            </summary>
+        </member>
+        <member name="M:praxicloud.core.metrics.applicationinsights.ApplicationInsightsMetricsExtensions.AddApplicationInsights(praxicloud.core.metrics.IMetricFactory,System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Adds an Application Insights provider to the factory
+            </summary>
+            <param name="factory">The factory to add the application insights provider to</param>
+            <param name="name">The user friendly and unique name of the provider</param>
+            <param name="instrumentationKey">The application insights instrumentation key to write to</param>
+            <param name="enrichmentProperties">The dictionary of properties that are to be used when enriching telemetry objects processed by this initializer</param>
+            <returns>The metric factory</returns>
+        </member>
+        <member name="T:praxicloud.core.metrics.applicationinsights.ApplicationInsightsMetricsProvider">
+            <summary>
+            An application insights provider for metrics
+            </summary>
+        </member>
+        <member name="F:praxicloud.core.metrics.applicationinsights.ApplicationInsightsMetricsProvider._client">
+            <summary>
+            Application Insights client
+            </summary>
+        </member>
+        <member name="M:praxicloud.core.metrics.applicationinsights.ApplicationInsightsMetricsProvider.#ctor(System.String,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            A metrics provider that uses Application Insights as its sink
+            </summary>
+            <param name="instrumentationKey">The application insights instrumentation key to write to</param>
+            <param name="enrichmentProperties">The dictionary of properties that are to be used when enriching telemetry objects processed by this initializer</param>
+        </member>
+        <member name="M:praxicloud.core.metrics.applicationinsights.ApplicationInsightsMetricsProvider.CreateCounter(System.String,System.String,System.Boolean,System.String[])">
+            <inheritdoc />
+        </member>
+        <member name="M:praxicloud.core.metrics.applicationinsights.ApplicationInsightsMetricsProvider.CreateGauge(System.String,System.String,System.Boolean,System.String[])">
+            <inheritdoc />
+        </member>
+        <member name="M:praxicloud.core.metrics.applicationinsights.ApplicationInsightsMetricsProvider.CreatePulse(System.String,System.String,System.Boolean,System.String[])">
+            <inheritdoc />
+        </member>
+        <member name="M:praxicloud.core.metrics.applicationinsights.ApplicationInsightsMetricsProvider.CreateSummary(System.String,System.String,System.Int64,System.Boolean,System.String[])">
+            <inheritdoc />
+        </member>
+        <member name="T:praxicloud.core.metrics.applicationinsights.ApplicationInsightsPulse">
+            <summary>
+            A metric that indicates an known event occurred, storing its data in Application Insights
+            </summary>
+        </member>
+        <member name="F:praxicloud.core.metrics.applicationinsights.ApplicationInsightsPulse._metric">
+            <summary>
+            The metric container in use
+            </summary>
+        </member>
+        <member name="F:praxicloud.core.metrics.applicationinsights.ApplicationInsightsPulse._writer">
+            <summary>
+            An instance used to write the metric with required labels
+            </summary>      
+        </member>
+        <member name="M:praxicloud.core.metrics.applicationinsights.ApplicationInsightsPulse.#ctor(Microsoft.ApplicationInsights.TelemetryClient,System.String,System.String,System.String[])">
+            <summary>
+            Initializes a new instance of the type
+            </summary>
+            <param name="client">The telemetry client being written to</param>
+            <param name="name">The name of the pulse</param>
+            <param name="help">The help text associated with the pulse</param>
+            <param name="labels">The labels assocaited with the pulse</param>
+        </member>
+        <member name="P:praxicloud.core.metrics.applicationinsights.ApplicationInsightsPulse.Name">
+            <inheritdoc />
+        </member>
+        <member name="P:praxicloud.core.metrics.applicationinsights.ApplicationInsightsPulse.Help">
+            <inheritdoc />
+        </member>
+        <member name="P:praxicloud.core.metrics.applicationinsights.ApplicationInsightsPulse.Labels">
+            <inheritdoc />
+        </member>
+        <member name="M:praxicloud.core.metrics.applicationinsights.ApplicationInsightsPulse.Observe">
+            <inheritdoc />
+        </member>
+        <member name="T:praxicloud.core.metrics.applicationinsights.ApplicationInsightsSummary">
+            <summary>
+            A metric that Summarizes the value over a period of time, storing its data in Application Insights
+            </summary>
+        </member>
+        <member name="F:praxicloud.core.metrics.applicationinsights.ApplicationInsightsSummary._metric">
+            <summary>
+            The metric container in use
+            </summary>
+        </member>
+        <member name="F:praxicloud.core.metrics.applicationinsights.ApplicationInsightsSummary._writer">
+            <summary>
+            An instance used to write the metric with required labels
+            </summary>      
+        </member>
+        <member name="M:praxicloud.core.metrics.applicationinsights.ApplicationInsightsSummary.#ctor(Microsoft.ApplicationInsights.TelemetryClient,System.String,System.String,System.String[])">
+            <summary>
+            Initializes a new instance of the type
+            </summary>
+            <param name="client">The telemetry client being written to</param>
+            <param name="name">The name of the pulse</param>
+            <param name="help">The help text associated with the pulse</param>
+            <param name="labels">The labels assocaited with the pulse</param>
+        </member>
+        <member name="P:praxicloud.core.metrics.applicationinsights.ApplicationInsightsSummary.Name">
+            <inheritdoc />
+        </member>
+        <member name="P:praxicloud.core.metrics.applicationinsights.ApplicationInsightsSummary.Help">
+            <inheritdoc />
+        </member>
+        <member name="P:praxicloud.core.metrics.applicationinsights.ApplicationInsightsSummary.Labels">
+            <inheritdoc />
+        </member>
+        <member name="M:praxicloud.core.metrics.applicationinsights.ApplicationInsightsSummary.Time">
+            <inheritdoc />
+        </member>
+        <member name="M:praxicloud.core.metrics.applicationinsights.ApplicationInsightsSummary.Observe(System.Double)">
+            <inheritdoc />
+        </member>
+        <member name="T:praxicloud.core.metrics.applicationinsights.ApplicationInsightsSummary.Tracker">
+            <summary>
+            An type that writes the time from instantiation to disposal in a summary observed value
+            </summary>
+        </member>
+        <member name="F:praxicloud.core.metrics.applicationinsights.ApplicationInsightsSummary.Tracker._summary">
+            <summary>
+            The summary to track with
+            </summary>
+        </member>
+        <member name="F:praxicloud.core.metrics.applicationinsights.ApplicationInsightsSummary.Tracker._watch">
+            <summary>
+            The stopwatch to track with
+            </summary>
+        </member>
+        <member name="M:praxicloud.core.metrics.applicationinsights.ApplicationInsightsSummary.Tracker.#ctor(praxicloud.core.metrics.ISummary)">
+            <summary>
+            Initializes a new instance of the type
+            </summary>
+            <param name="summary">The summary to modify</param>
+        </member>
+        <member name="M:praxicloud.core.metrics.applicationinsights.ApplicationInsightsSummary.Tracker.Dispose">
+            <inheritdoc />
+        </member>
+        <member name="T:praxicloud.core.metrics.applicationinsights.DimensionalWriter">
+            <summary>
+            A helper utility to share across metric types to write data with the appropriate dimensions
+            </summary>
+        </member>
+        <member name="T:praxicloud.core.metrics.applicationinsights.DimensionalWriter.LabelRecorderLong">
+            <summary>
+            A delegate used to write the required number of labels for this metric
+            </summary>
+            <param name="value">The value to set the metric to</param>
+        </member>
+        <member name="T:praxicloud.core.metrics.applicationinsights.DimensionalWriter.LabelRecorderDouble">
+            <summary>
+            A delegate used to write the required number of labels for this metric
+            </summary>
+            <param name="value">The value to set the metric to</param>
+        </member>
+        <member name="F:praxicloud.core.metrics.applicationinsights.DimensionalWriter._metric">
+            <summary>
+            The metric container in use
+            </summary>
+        </member>
+        <member name="F:praxicloud.core.metrics.applicationinsights.DimensionalWriter._labelRecorderLong">
+            <summary>
+            A method to write the metric with required labels
+            </summary>      
+        </member>
+        <member name="F:praxicloud.core.metrics.applicationinsights.DimensionalWriter._labelRecorderDouble">
+            <summary>
+            A method to write the metric with required labels
+            </summary>      
+        </member>
+        <member name="F:praxicloud.core.metrics.applicationinsights.DimensionalWriter._labels">
+            <summary>
+            The labels the metric has
+            </summary>
+        </member>
+        <member name="M:praxicloud.core.metrics.applicationinsights.DimensionalWriter.#ctor(Microsoft.ApplicationInsights.Metric,System.String[])">
+            <summary>
+            Initializes a new instance of the type
+            </summary>
+            <param name="metric">The metric the writer is associated with</param>
+            <param name="labels">The labels that the metric has</param>
+        </member>
+        <member name="M:praxicloud.core.metrics.applicationinsights.DimensionalWriter.RecordValue(System.Int64)">
+            <summary>
+            Records the value
+            </summary>
+            <param name="value">The value to record</param>
+        </member>
+        <member name="M:praxicloud.core.metrics.applicationinsights.DimensionalWriter.RecordValue(System.Double)">
+            <summary>
+            Records the value
+            </summary>
+            <param name="value">The value to record</param>
+        </member>
+        <member name="M:praxicloud.core.metrics.applicationinsights.DimensionalWriter.RecordMetric0LabelsLong(System.Int64)">
+            <summary>
+            A metric recorder to write 0 dimensions
+            </summary>
+            <param name="value">The value to record</param>
+        </member>
+        <member name="M:praxicloud.core.metrics.applicationinsights.DimensionalWriter.RecordMetric1LabelsLong(System.Int64)">
+            <summary>
+            A metric recorder to write 1 dimension
+            </summary>
+            <param name="value">The value to record</param>
+        </member>
+        <member name="M:praxicloud.core.metrics.applicationinsights.DimensionalWriter.RecordMetric2LabelsLong(System.Int64)">
+            <summary>
+            A metric recorder to write 2 dimensions
+            </summary>
+            <param name="value">The value to record</param>
+        </member>
+        <member name="M:praxicloud.core.metrics.applicationinsights.DimensionalWriter.RecordMetric3LabelsLong(System.Int64)">
+            <summary>
+            A metric recorder to write 3 dimensions
+            </summary>
+            <param name="value">The value to record</param>
+        </member>
+        <member name="M:praxicloud.core.metrics.applicationinsights.DimensionalWriter.RecordMetric4LabelsLong(System.Int64)">
+            <summary>
+            A metric recorder to write 4 dimensions
+            </summary>
+            <param name="value">The value to record</param>
+        </member>
+        <member name="M:praxicloud.core.metrics.applicationinsights.DimensionalWriter.RecordMetric5LabelsLong(System.Int64)">
+            <summary>
+            A metric recorder to write 5 dimensions
+            </summary>
+            <param name="value">The value to record</param>
+        </member>
+        <member name="M:praxicloud.core.metrics.applicationinsights.DimensionalWriter.RecordMetric6LabelsLong(System.Int64)">
+            <summary>
+            A metric recorder to write 6 dimensions
+            </summary>
+            <param name="value">The value to record</param>
+        </member>
+        <member name="M:praxicloud.core.metrics.applicationinsights.DimensionalWriter.RecordMetric7LabelsLong(System.Int64)">
+            <summary>
+            A metric recorder to write 7 dimensions
+            </summary>
+            <param name="value">The value to record</param>
+        </member>
+        <member name="M:praxicloud.core.metrics.applicationinsights.DimensionalWriter.RecordMetric8LabelsLong(System.Int64)">
+            <summary>
+            A metric recorder to write 8 dimensions
+            </summary>
+            <param name="value">The value to record</param>
+        </member>
+        <member name="M:praxicloud.core.metrics.applicationinsights.DimensionalWriter.RecordMetric9LabelsLong(System.Int64)">
+            <summary>
+            A metric recorder to write 9 dimensions
+            </summary>
+            <param name="value">The value to record</param>
+        </member>
+        <member name="M:praxicloud.core.metrics.applicationinsights.DimensionalWriter.RecordMetric10LabelsLong(System.Int64)">
+            <summary>
+            A metric recorder to write 10 dimensions
+            </summary>
+            <param name="value">The value to record</param>
+        </member>
+        <member name="M:praxicloud.core.metrics.applicationinsights.DimensionalWriter.RecordMetric0LabelsDouble(System.Double)">
+            <summary>
+            A metric recorder to write 0 dimensions
+            </summary>
+            <param name="value">The value to record</param>
+        </member>
+        <member name="M:praxicloud.core.metrics.applicationinsights.DimensionalWriter.RecordMetric1LabelsDouble(System.Double)">
+            <summary>
+            A metric recorder to write 1 dimension
+            </summary>
+            <param name="value">The value to record</param>
+        </member>
+        <member name="M:praxicloud.core.metrics.applicationinsights.DimensionalWriter.RecordMetric2LabelsDouble(System.Double)">
+            <summary>
+            A metric recorder to write 2 dimensions
+            </summary>
+            <param name="value">The value to record</param>
+        </member>
+        <member name="M:praxicloud.core.metrics.applicationinsights.DimensionalWriter.RecordMetric3LabelsDouble(System.Double)">
+            <summary>
+            A metric recorder to write 3 dimensions
+            </summary>
+            <param name="value">The value to record</param>
+        </member>
+        <member name="M:praxicloud.core.metrics.applicationinsights.DimensionalWriter.RecordMetric4LabelsDouble(System.Double)">
+            <summary>
+            A metric recorder to write 4 dimensions
+            </summary>
+            <param name="value">The value to record</param>
+        </member>
+        <member name="M:praxicloud.core.metrics.applicationinsights.DimensionalWriter.RecordMetric5LabelsDouble(System.Double)">
+            <summary>
+            A metric recorder to write 5 dimensions
+            </summary>
+            <param name="value">The value to record</param>
+        </member>
+        <member name="M:praxicloud.core.metrics.applicationinsights.DimensionalWriter.RecordMetric6LabelsDouble(System.Double)">
+            <summary>
+            A metric recorder to write 6 dimensions
+            </summary>
+            <param name="value">The value to record</param>
+        </member>
+        <member name="M:praxicloud.core.metrics.applicationinsights.DimensionalWriter.RecordMetric7LabelsDouble(System.Double)">
+            <summary>
+            A metric recorder to write 7 dimensions
+            </summary>
+            <param name="value">The value to record</param>
+        </member>
+        <member name="M:praxicloud.core.metrics.applicationinsights.DimensionalWriter.RecordMetric8LabelsDouble(System.Double)">
+            <summary>
+            A metric recorder to write 8 dimensions
+            </summary>
+            <param name="value">The value to record</param>
+        </member>
+        <member name="M:praxicloud.core.metrics.applicationinsights.DimensionalWriter.RecordMetric9LabelsDouble(System.Double)">
+            <summary>
+            A metric recorder to write 9 dimensions
+            </summary>
+            <param name="value">The value to record</param>
+        </member>
+        <member name="M:praxicloud.core.metrics.applicationinsights.DimensionalWriter.RecordMetric10LabelsDouble(System.Double)">
+            <summary>
+            A metric recorder to write 10 dimensions
+            </summary>
+            <param name="value">The value to record</param>
+        </member>
+        <member name="T:praxicloud.core.metrics.applicationinsights.utilities.TelemetryEnricher">
+            <summary>
+            A generic telemetry initializer that adds properties to the object if not filtered out
+            </summary>
+        </member>
+        <member name="T:praxicloud.core.metrics.applicationinsights.utilities.TelemetryEnricher.PropertiesLookup">
+            <summary>
+            Retrieves a dynamic list of properties to enrich the telemetry item with.
+            </summary>
+            <param name="telemetry">The telemetry object that the enrichment properties are being retrieved for</param>
+            <returns>The enrichment properties to be applied. If default Machine Name key is included the default Machine Key will be excluded</returns>
+        </member>
+        <member name="T:praxicloud.core.metrics.applicationinsights.utilities.TelemetryEnricher.ShouldEnrich">
+            <summary>
+            Determines if the telemetry object should be enriched by this enricher
+            </summary>
+            <param name="telemetry">The telemetry event being tested for enrichment</param>
+            <returns>True if the object should be enriched</returns>
+        </member>
+        <member name="F:praxicloud.core.metrics.applicationinsights.utilities.TelemetryEnricher.MachineNameKey">
+            <summary>
+            The default Machine Name key that is populated if one is not provided
+            </summary>
+        </member>
+        <member name="F:praxicloud.core.metrics.applicationinsights.utilities.TelemetryEnricher.ProcessIdKey">
+            <summary>
+            The default process id key that is populated if requested and one is not provided with the same name
+            </summary>
+        </member>
+        <member name="F:praxicloud.core.metrics.applicationinsights.utilities.TelemetryEnricher._enrichmentProperties">
+            <summary>
+            The enrichment properties that will be added to every telemetry object that is enriched
+            </summary>
+        </member>
+        <member name="F:praxicloud.core.metrics.applicationinsights.utilities.TelemetryEnricher._shouldEnrich">
+            <summary>
+            The method that is in use to determine if the telemetry object should be enriched
+            </summary>
+        </member>
+        <member name="F:praxicloud.core.metrics.applicationinsights.utilities.TelemetryEnricher._lookup">
+            <summary>
+            The method that is in use for retrieving a dynamic dictionary to add to the telemetry object
+            </summary>
+        </member>
+        <member name="F:praxicloud.core.metrics.applicationinsights.utilities.TelemetryEnricher._includeProcessId">
+            <summary>
+            True if the process id key should be included in the telemetry enrichment
+            </summary>
+        </member>
+        <member name="M:praxicloud.core.metrics.applicationinsights.utilities.TelemetryEnricher.#ctor(System.Collections.Generic.Dictionary{System.String,System.String},praxicloud.core.metrics.applicationinsights.utilities.TelemetryEnricher.PropertiesLookup,praxicloud.core.metrics.applicationinsights.utilities.TelemetryEnricher.ShouldEnrich,System.Boolean)">
+            <summary>
+            Initializes a new instance of the type
+            </summary>
+            <param name="enrichmentProperties">The dictionary of properties that are to be used when enriching telemetry objects processed by this initializer</param>
+            <param name="lookup">A lookup for dynamic properties by telemetry event being processed</param>
+            <param name="shouldEnrich">A method that returns true if the object should be enriched. By default it enriches all MetricTelemetry and EventTelemetry objects</param>
+            <param name="includeProcessId">True if the process id should be added to the enrichment properties</param>
+        </member>
+        <member name="M:praxicloud.core.metrics.applicationinsights.utilities.TelemetryEnricher.Initialize(Microsoft.ApplicationInsights.Channel.ITelemetry)">
+            <inheritdoc />
+        </member>
+        <member name="M:praxicloud.core.metrics.applicationinsights.utilities.TelemetryEnricher.DefaultShouldEnrich(Microsoft.ApplicationInsights.Channel.ITelemetry)">
+            <summary>
+            The default check on telemetry to determine if it should enrich it. Defaults to only enriching EventTelemetry and MetricTelemetry types
+            </summary>
+            <param name="telemetry">The telemetry object to check for enrichment</param>
+            <returns>True if the object should be enriched</returns>
+        </member>
+        <member name="M:praxicloud.core.metrics.applicationinsights.utilities.TelemetryEnricher.DefaultPropertiesLookup(Microsoft.ApplicationInsights.Channel.ITelemetry)">
+            <summary>
+            The default property lookup for the telemetry item. This implementation always returns a null dictionary
+            </summary>
+            <param name="telemetry">The telemetry object that the enrichment properties are being retrieved for</param>
+            <returns>This implementation always returns a null dictionary</returns>
+        </member>
+    </members>
+</doc>

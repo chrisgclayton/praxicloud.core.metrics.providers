@@ -1,0 +1,233 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>praxicloud.core.metrics.prometheus</name>
+    </assembly>
+    <members>
+        <member name="T:praxicloud.core.metrics.prometheus.PrometheusCounter">
+            <summary>
+            A counter that increments in values and never decreases, only restarting when it is recreated, storing its values using prometheus
+            </summary>
+        </member>
+        <member name="F:praxicloud.core.metrics.prometheus.PrometheusCounter._metric">
+            <summary>
+            The Prometheus metric to write to
+            </summary>
+        </member>
+        <member name="M:praxicloud.core.metrics.prometheus.PrometheusCounter.#ctor(System.String,System.String,System.Boolean,System.String[])">
+            <summary>
+            Initializes a new instance of the type
+            </summary>
+            <param name="name">The name of the counter</param>
+            <param name="delayPublish">True if the counter should wait to publish information until it has a value assigned</param>
+            <param name="help">The help text associated with the counter</param>
+            <param name="labels">The labels assocaited with the counter</param>
+        </member>
+        <member name="P:praxicloud.core.metrics.prometheus.PrometheusCounter.Name">
+            <inheritdoc />
+        </member>
+        <member name="P:praxicloud.core.metrics.prometheus.PrometheusCounter.Help">
+            <inheritdoc />
+        </member>
+        <member name="P:praxicloud.core.metrics.prometheus.PrometheusCounter.Labels">
+            <inheritdoc />
+        </member>
+        <member name="M:praxicloud.core.metrics.prometheus.PrometheusCounter.Increment">
+            <inheritdoc />
+        </member>
+        <member name="M:praxicloud.core.metrics.prometheus.PrometheusCounter.IncrementBy(System.Double)">
+            <inheritdoc />
+        </member>
+        <member name="M:praxicloud.core.metrics.prometheus.PrometheusCounter.SetTo(System.Double)">
+            <inheritdoc />
+        </member>
+        <member name="T:praxicloud.core.metrics.prometheus.PrometheusGauge">
+            <summary>
+            A metric that indicates an known event occurred, storing its data in storing its values using prometheus
+            </summary>
+        </member>
+        <member name="F:praxicloud.core.metrics.prometheus.PrometheusGauge._metric">
+            <summary>
+            The Prometheus metric to write to
+            </summary>
+        </member>
+        <member name="M:praxicloud.core.metrics.prometheus.PrometheusGauge.#ctor(System.String,System.String,System.Boolean,System.String[])">
+            <summary>
+            Initializes a new instance of the type
+            </summary>
+            <param name="name">The name of the gauge</param>
+            <param name="delayPublish">True if the gauge should wait to publish information until it has a value assigned</param>
+            <param name="help">The help text associated with the gauge</param>
+            <param name="labels">The labels assocaited with the gauge</param>
+        </member>
+        <member name="P:praxicloud.core.metrics.prometheus.PrometheusGauge.Name">
+            <inheritdoc />
+        </member>
+        <member name="P:praxicloud.core.metrics.prometheus.PrometheusGauge.Help">
+            <inheritdoc />
+        </member>
+        <member name="P:praxicloud.core.metrics.prometheus.PrometheusGauge.Labels">
+            <inheritdoc />
+        </member>
+        <member name="M:praxicloud.core.metrics.prometheus.PrometheusGauge.Decrement">
+            <inheritdoc />
+        </member>
+        <member name="M:praxicloud.core.metrics.prometheus.PrometheusGauge.DecrementBy(System.Double)">
+            <inheritdoc />
+        </member>
+        <member name="M:praxicloud.core.metrics.prometheus.PrometheusGauge.Increment">
+            <inheritdoc />
+        </member>
+        <member name="M:praxicloud.core.metrics.prometheus.PrometheusGauge.IncrementBy(System.Double)">
+            <inheritdoc />
+        </member>
+        <member name="M:praxicloud.core.metrics.prometheus.PrometheusGauge.SetTo(System.Double)">
+            <inheritdoc />
+        </member>
+        <member name="M:praxicloud.core.metrics.prometheus.PrometheusGauge.TrackExecution">
+            <inheritdoc />
+        </member>
+        <member name="T:praxicloud.core.metrics.prometheus.PrometheusMetricsExtensions">
+            <summary>
+            An extension class for metric factories
+            </summary>
+        </member>
+        <member name="M:praxicloud.core.metrics.prometheus.PrometheusMetricsExtensions.AddPrometheus(praxicloud.core.metrics.IMetricFactory,System.String,System.Int32,System.String,System.String,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Adds a Prometheus provider to the factory
+            </summary>
+            <param name="factory">The factory to add the application insights provider to</param>
+            <param name="name">The user friendly and unique name of the provider</param>
+            <param name="hostName">The host name that will server the data</param>
+            <param name="port">The port that the metrics server willb exposed on</param>
+            <param name="url">The URL suffix the metrics server will be exposed on (default: metrics/)</param>
+            <param name="bufferSize">The number of metrics in a bucket, use multiples of 500 for optimal performance</param>
+            <param name="ageBuckets">The number of buckets to keep before aging out</param>
+            <param name="pulseDuration">The duration in seconds of a pulse summary</param>
+        </member>
+        <member name="T:praxicloud.core.metrics.prometheus.PrometheusMetricsProvider">
+            <summary>
+            A Prometheus provider for metrics
+            </summary>
+        </member>
+        <member name="F:praxicloud.core.metrics.prometheus.PrometheusMetricsProvider._metricServer">
+            <summary>
+            A single instance of the Prometheus metrics server
+            </summary>
+        </member>
+        <member name="F:praxicloud.core.metrics.prometheus.PrometheusMetricsProvider._bufferSize">
+            <summary>
+            The number of metrics in a bucket, use multiples of 500 for optimal performance
+            </summary>
+        </member>
+        <member name="F:praxicloud.core.metrics.prometheus.PrometheusMetricsProvider._ageBuckets">
+            <summary>
+            The number of buckets to keep before aging out
+            </summary>
+        </member>
+        <member name="F:praxicloud.core.metrics.prometheus.PrometheusMetricsProvider._pulseDuration">
+            <summary>
+            The duration in seconds of a pulse summary
+            </summary>
+        </member>
+        <member name="M:praxicloud.core.metrics.prometheus.PrometheusMetricsProvider.#ctor(System.String,System.Int32,System.String,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the type
+            </summary>
+            <param name="hostName">The host name that will server the data</param>
+            <param name="port">The port that the metrics server willb exposed on</param>
+            <param name="url">The URL suffix the metrics server will be exposed on (default: metrics/)</param>
+            <param name="bufferSize">The number of metrics in a bucket, use multiples of 500 for optimal performance</param>
+            <param name="ageBuckets">The number of buckets to keep before aging out</param>
+            <param name="pulseDuration">The duration in seconds of a pulse summary</param>
+        </member>
+        <member name="M:praxicloud.core.metrics.prometheus.PrometheusMetricsProvider.CreateCounter(System.String,System.String,System.Boolean,System.String[])">
+            <inheritdoc />
+        </member>
+        <member name="M:praxicloud.core.metrics.prometheus.PrometheusMetricsProvider.CreateGauge(System.String,System.String,System.Boolean,System.String[])">
+            <inheritdoc />
+        </member>
+        <member name="M:praxicloud.core.metrics.prometheus.PrometheusMetricsProvider.CreatePulse(System.String,System.String,System.Boolean,System.String[])">
+            <inheritdoc />
+        </member>
+        <member name="M:praxicloud.core.metrics.prometheus.PrometheusMetricsProvider.CreateSummary(System.String,System.String,System.Int64,System.Boolean,System.String[])">
+            <inheritdoc />
+        </member>
+        <member name="T:praxicloud.core.metrics.prometheus.PrometheusPulse">
+            <summary>
+            A metric that indicates an known event occurred, storing its data in prometheus
+            </summary>
+        </member>
+        <member name="F:praxicloud.core.metrics.prometheus.PrometheusPulse._metric">
+            <summary>
+            The Prometheus metric to write to
+            </summary>
+        </member>
+        <member name="M:praxicloud.core.metrics.prometheus.PrometheusPulse.#ctor(System.String,System.String,System.Int64,System.Boolean,System.String[],System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the type
+            </summary>
+            <param name="name">The name of the counter</param>
+            <param name="delayPublish">True if the counter should wait to publish information until it has a value assigned</param>
+            <param name="help">The help text associated with the counter</param>
+            <param name="duration">The duration in seconds of each bucket (the aggregation is across this bucket)</param>
+            <param name="labels">The labels assocaited with the counter</param>
+            <param name="bufferSize">Buffer size limit, use multiples of 500</param>
+            <param name="ageBuckets">Number of buckets used to expire content</param>
+        </member>
+        <member name="P:praxicloud.core.metrics.prometheus.PrometheusPulse.Name">
+            <inheritdoc />
+        </member>
+        <member name="P:praxicloud.core.metrics.prometheus.PrometheusPulse.Help">
+            <inheritdoc />
+        </member>
+        <member name="P:praxicloud.core.metrics.prometheus.PrometheusPulse.Labels">
+            <inheritdoc />
+        </member>
+        <member name="M:praxicloud.core.metrics.prometheus.PrometheusPulse.Observe">
+            <inheritdoc />
+        </member>
+        <member name="T:praxicloud.core.metrics.prometheus.PrometheusSummary">
+            <summary>
+            A summary that tracks summary details of values observed, storing its values using prometheus
+            </summary>
+        </member>
+        <member name="F:praxicloud.core.metrics.prometheus.PrometheusSummary._quantiles">
+            <summary>
+            The list of quantiles being tracked for metrics
+            </summary>
+        </member>
+        <member name="F:praxicloud.core.metrics.prometheus.PrometheusSummary._metric">
+            <summary>
+            The Prometheus metric to write to
+            </summary>
+        </member>
+        <member name="M:praxicloud.core.metrics.prometheus.PrometheusSummary.#ctor(System.String,System.String,System.Int64,System.Boolean,System.String[],System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the type
+            </summary>
+            <param name="name">The name of the counter</param>
+            <param name="delayPublish">True if the counter should wait to publish information until it has a value assigned</param>
+            <param name="help">The help text associated with the counter</param>
+            <param name="duration">The duration in seconds of each bucket (the aggregation is across this bucket)</param>
+            <param name="labels">The labels assocaited with the counter</param>
+            <param name="bufferSize">Buffer size limit, use multiples of 500</param>
+            <param name="ageBuckets">Number of buckets used to expire content</param>
+        </member>
+        <member name="P:praxicloud.core.metrics.prometheus.PrometheusSummary.Name">
+            <inheritdoc />
+        </member>
+        <member name="P:praxicloud.core.metrics.prometheus.PrometheusSummary.Help">
+            <inheritdoc />
+        </member>
+        <member name="P:praxicloud.core.metrics.prometheus.PrometheusSummary.Labels">
+            <inheritdoc />
+        </member>
+        <member name="M:praxicloud.core.metrics.prometheus.PrometheusSummary.Observe(System.Double)">
+            <inheritdoc />
+        </member>
+        <member name="M:praxicloud.core.metrics.prometheus.PrometheusSummary.Time">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>

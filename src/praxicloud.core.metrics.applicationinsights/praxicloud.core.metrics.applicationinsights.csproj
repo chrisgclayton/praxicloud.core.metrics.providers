@@ -4,12 +4,16 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageId>PraxiCloud.Core.Metrics.ApplicationInsights</PackageId>
+    <PackageId>PraxiCloud-Core-Metrics-ApplicationInsights</PackageId>
     <Description>PraxiCloud libraries offer a range of common functions, features and base classes to use when building solutions, increasing the time to delivery. This package offers a generic provider based metrics framework provider for Application Insights.</Description>
     <PackageTags>praxicloud utilities core common metrics factory application insights</PackageTags>
     <PackageReleaseNotes>Initial release</PackageReleaseNotes>
     <AssemblyVersion>1.0.11.0</AssemblyVersion>
     <FileVersion>1.0.11.0</FileVersion>
+  </PropertyGroup>
+  
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>C:\repos\praxicloud.core.metrics.providers\documents\praxicloud.core.metrics.applicationinsights\praxicloud.core.metrics.applicationinsights.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>

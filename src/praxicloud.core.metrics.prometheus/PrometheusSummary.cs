@@ -18,7 +18,7 @@ namespace praxicloud.core.metrics.prometheus
         /// <summary>
         /// The list of quantiles being tracked for metrics
         /// </summary>
-        private static readonly new QuantileEpsilonPair[] _quantiles = new QuantileEpsilonPair[] { new QuantileEpsilonPair(50, .01), new QuantileEpsilonPair(90, .01), new QuantileEpsilonPair(95, .01), new QuantileEpsilonPair(98, .01), new QuantileEpsilonPair(99, .01) };
+        private static readonly QuantileEpsilonPair[] _quantiles = new QuantileEpsilonPair[] { new QuantileEpsilonPair(50, .01), new QuantileEpsilonPair(90, .01), new QuantileEpsilonPair(95, .01), new QuantileEpsilonPair(98, .01), new QuantileEpsilonPair(99, .01) };
         /// <summary>
         /// The Prometheus metric to write to
         /// </summary>
