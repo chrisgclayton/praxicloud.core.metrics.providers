@@ -17,7 +17,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="PraxiCloud-Core-Metrics" Version="2.1.0" />
+    <PackageReference Include="PraxiCloud-Core-Metrics" Version="2.3.0" />
     <PackageReference Include="prometheus-net" Version="4.0.0" />
   </ItemGroup>
 
