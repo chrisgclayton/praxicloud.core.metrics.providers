@@ -87,6 +87,7 @@ namespace praxicloud.core.metrics.prometheus
             return new PrometheusSummary(name, help, duration, delayPublish, labels, _bufferSize, _ageBuckets);
         }
 
+        /// <inheritdoc />B
         public void Dispose()
         {
             _metricServer.Stop();

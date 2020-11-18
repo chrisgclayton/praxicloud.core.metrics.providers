@@ -153,6 +153,9 @@
         <member name="M:praxicloud.core.metrics.prometheus.PrometheusMetricsProvider.CreateSummary(System.String,System.String,System.Int64,System.Boolean,System.String[])">
             <inheritdoc />
         </member>
+        <member name="M:praxicloud.core.metrics.prometheus.PrometheusMetricsProvider.Dispose">
+            <inheritdoc />B
+        </member>
         <member name="T:praxicloud.core.metrics.prometheus.PrometheusPulse">
             <summary>
             A metric that indicates an known event occurred, storing its data in prometheus
