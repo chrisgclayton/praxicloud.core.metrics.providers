@@ -29,7 +29,7 @@ namespace praxicloud.core.metrics.prometheus
         /// <param name="labels">The labels assocaited with the gauge</param>
         public PrometheusGauge(string name, string help, bool delayPublish, string[] labels)
         {
-            Name = name;
+            Name = name.Replace('-', '_');
             Help = help;
             Labels = labels;
 

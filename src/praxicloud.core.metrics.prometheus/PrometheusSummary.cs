@@ -39,7 +39,7 @@ namespace praxicloud.core.metrics.prometheus
         {
             Guard.NotLessThan(nameof(duration), duration, 1);
 
-            Name = name;
+            Name = name.Replace('-', '_');
             Help = help;
             Labels = labels;
 

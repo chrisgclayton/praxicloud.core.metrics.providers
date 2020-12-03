@@ -28,7 +28,7 @@ namespace praxicloud.core.metrics.prometheus
         /// <param name="labels">The labels assocaited with the counter</param>
         public PrometheusCounter(string name, string help, bool delayPublish, string[] labels)
         {
-            Name = name;
+            Name = name.Replace('-', '_');
             Help = help;
             Labels = labels;
 
