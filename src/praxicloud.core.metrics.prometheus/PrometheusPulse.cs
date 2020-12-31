@@ -37,6 +37,20 @@ namespace praxicloud.core.metrics.prometheus
 
             Name = name.Replace('-', '_');
             Help = help;
+
+            if ((labels?.Length ?? 0) > 0)
+            {
+                for (var index = 0; index < labels.Length; index++)
+                {
+                    labels[index] = labels[index].Replace('-', '_');
+
+                    while (labels[index].Length < 5)
+                    {
+                        labels[index] += "0";
+                    }
+                }
+            }
+
             Labels = labels;
 
             _metric = Metrics.CreateSummary(Name, help, new SummaryConfiguration()
